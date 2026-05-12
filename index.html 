@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Estufa de Alface</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f4f7f6; }
+        .card-monitor { border: none; border-radius: 15px; transition: transform 0.3s; }
+        .card-monitor:hover { transform: translateY(-5px); }
+        .status-badge { font-size: 0.8rem; }
+        #graficoEstufa { max-height: 400px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-success mb-4">
+    <div class="container">
+        <span class="navbar-brand mb-0 h1">🌿 LettuceTech | Monitoramento de Estufa</span>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row text-center mb-4">
+        <div class="col-md-4">
+            <div class="card card-monitor shadow-sm p-3 mb-3">
+                <h5 class="text-muted">Temperatura</h5>
+                <h2 id="temp-val">24°C</h2>
+                <span class="badge bg-success status-badge">Ideal (18-24°C)</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-monitor shadow-sm p-3 mb-3">
+                <h5 class="text-muted">Umidade do Ar</h5>
+                <h2 id="hum-val">70%</h2>
+                <span class="badge bg-info status-badge">Estável</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-monitor shadow-sm p-3 mb-3">
+                <h5 class="text-muted">Luminosidade</h5>
+                <h2 id="lux-val">12.000 lux</h2>
+                <span class="badge bg-warning text-dark status-badge">Ativa</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm p-4">
+                <h5 class="card-title">Histórico de Sensores (Simulação)</h5>
+                <canvas id="graficoEstufa"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 mb-5">
+        <div class="col-md-6">
+            <div class="card p-3">
+                <h5>Configurações da Estufa</h5>
+                <div class="form-check form-switch mt-2">
+                    <input class="form-check-input" type="checkbox" id="irrigaSwitch">
+                    <label class="form-check-label" for="irrigaSwitch">Sistema de Irrigação</label>
+                </div>
+                <div class="form-check form-switch mt-2">
+                    <input class="form-check-input" type="checkbox" id="coolSwitch">
